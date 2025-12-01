@@ -12,62 +12,156 @@ st.set_page_config(
 )
 
 # -----------------------------
-# 🎨 Simple & clean style
+# 🎨 Enhanced Professional Style
 # -----------------------------
 st.markdown(
     """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+    
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+    
     .main {
-        background: radial-gradient(circle at top left, #431407 0, #1f2937 40%, #020617 100%);
+        background: linear-gradient(135deg, #1a0d08 0%, #2d1810 25%, #1f1410 50%, #0f0a08 100%);
         color: #f9fafb;
     }
+    
     .block-container {
-        padding-top: 2rem;
+        padding-top: 2.5rem;
         padding-bottom: 2rem;
-        max-width: 1100px;
+        max-width: 1200px;
     }
+    
+    .hero-section {
+        text-align: center;
+        padding: 2rem 1rem 1.5rem 1rem;
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.15) 0%, rgba(101, 67, 33, 0.1) 100%);
+        border-radius: 24px;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(184, 134, 11, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #d4a574, #8b4513, #d4a574);
+        animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+    }
+    
     .big-title {
-        text-align: center;
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 900;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #f4e4c1 0%, #d4a574 50%, #8b4513 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
     }
+    
     .subtitle {
-        text-align: center;
-        font-size: 1.05rem;
-        color: #e5e7ebcc;
-        margin-bottom: 0.3rem;
-    }
-    .gradient-bar {
-        height: 4px;
-        max-width: 230px;
-        margin: 0.6rem auto 1.4rem auto;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #fbbf24, #fb7185, #a855f7);
-    }
-    .card {
-        background: rgba(15, 23, 42, 0.95);
-        border-radius: 18px;
-        padding: 1.3rem 1.6rem;
-        border: 1px solid rgba(148, 163, 184, 0.4);
-        box-shadow: 0 18px 38px rgba(15, 23, 42, 0.85);
+        font-size: 1.15rem;
+        color: #e5e7eb;
         margin-bottom: 1rem;
+        font-weight: 300;
+        line-height: 1.6;
     }
+    
+    .coffee-icon {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+        filter: drop-shadow(0 4px 8px rgba(139, 69, 19, 0.6));
+    }
+    
+    .card {
+        background: linear-gradient(135deg, rgba(30, 20, 15, 0.95) 0%, rgba(20, 15, 12, 0.98) 100%);
+        border-radius: 20px;
+        padding: 1.8rem 2rem;
+        border: 1px solid rgba(212, 165, 116, 0.25);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #d4a574, transparent);
+    }
+    
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 50px rgba(139, 69, 19, 0.4);
+    }
+    
     .section-title {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-weight: 700;
-        margin-bottom: 0.7rem;
+        margin-bottom: 1rem;
         display: flex;
         align-items: center;
-        gap: 0.4rem;
+        gap: 0.6rem;
+        color: #d4a574;
+        border-bottom: 2px solid rgba(212, 165, 116, 0.2);
+        padding-bottom: 0.5rem;
     }
+    
+    .metric-container {
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.15) 0%, rgba(101, 67, 33, 0.1) 100%);
+        border-radius: 16px;
+        padding: 1.2rem;
+        border: 1px solid rgba(212, 165, 116, 0.2);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .metric-container:hover {
+        transform: scale(1.05);
+        border-color: rgba(212, 165, 116, 0.5);
+    }
+    
     .footer-note {
         text-align: center;
-        opacity: 0.6;
-        margin-top: 0.7rem;
-        font-size: 0.9rem;
+        opacity: 0.7;
+        margin-top: 1rem;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: #d4a574;
+    }
+    
+    .stSlider > div > div > div {
+        background: linear-gradient(90deg, #8b4513, #d4a574);
+    }
+    
+    /* Sidebar styling */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1a0d08 0%, #2d1810 100%);
+    }
+    
+    [data-testid="stSidebar"] .element-container {
+        color: #f4e4c1;
     }
     </style>
     """,
@@ -75,28 +169,37 @@ st.markdown(
 )
 
 # -----------------------------
-# HEADER
+# HEADER WITH HERO SECTION
 # -----------------------------
-st.markdown("<h1 class='big-title'>THE COFFEE ADDICTION CURVE</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<p class='subtitle'>Interactive visualization of your energy level throughout the day, based on how much coffee you drink.</p>",
+    """
+    <div class='hero-section'>
+        <div class='coffee-icon'>☕</div>
+        <h1 class='big-title'>The Coffee Addiction Curve</h1>
+        <p class='subtitle'>Because our energy doesn't follow a straight line.<br>It moves with our habits, our moods... and our caffeine.</p>
+    </div>
+    """,
     unsafe_allow_html=True
 )
-st.markdown("<div class='gradient-bar'></div>", unsafe_allow_html=True)
 
 # -----------------------------
 # SIDEBAR – user input
 # -----------------------------
-st.sidebar.title("⚙️ Settings")
+st.sidebar.markdown("### ⚙️ Control Panel")
+st.sidebar.markdown("---")
 
 coffee_count = st.sidebar.slider(
-    "Number of coffees today",
+    "☕ Number of coffees today",
     min_value=0,
     max_value=5,
-    value=2
+    value=2,
+    help="Adjust to see how coffee impacts your energy curve"
 )
 
-st.sidebar.caption("Assumption: coffees at 8:00, 10:00, 14:00, 16:00 and 20:00.")
+st.sidebar.markdown("---")
+st.sidebar.caption("📅 **Assumption:** Coffees consumed at 8:00, 10:00, 14:00, 16:00 and 20:00.")
+st.sidebar.markdown("---")
+st.sidebar.info("💡 **Tip:** The optimal zone is typically 2-3 coffees per day for sustained productivity.")
 
 # -----------------------------
 # Data Generator
@@ -105,14 +208,12 @@ def generate_energy_data(num: int) -> pd.DataFrame:
     hours = ["6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00",
              "15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00"]
 
-    # Baseline energy curve (no coffee)
     base = [10,20,30,35,30,28,26,22,20,18,16,14,12,10,8,6,5]
     energy = base.copy()
 
     mood = ["😴"] * len(hours)
     status = ["Low"] * len(hours)
 
-    # COFFEE EFFECTS
     if num >= 1:
         energy[2] = 85
         energy[3] = 95
@@ -151,7 +252,6 @@ def generate_energy_data(num: int) -> pd.DataFrame:
 
 df = generate_energy_data(coffee_count)
 
-# Coffee times (for highlighting on the curve)
 def get_coffee_hours(num: int):
     lst = []
     if num >= 1: lst.append("8:00")
@@ -167,40 +267,42 @@ coffee_hours = get_coffee_hours(coffee_count)
 # INTRO
 # -----------------------------
 st.markdown("<div class='card'>", unsafe_allow_html=True)
-st.markdown("<div class='section-title'>🔍 Introduction</div>", unsafe_allow_html=True)
+st.markdown("<div class='section-title'>🔍 Understanding Your Energy Curve</div>", unsafe_allow_html=True)
 st.markdown(
     """
     This curve represents **E(t)**, your theoretical energy level over the day:
     
-    - a natural baseline that rises in the morning and slowly decreases in the evening;  
-    - each ☕ adds a **temporary boost** at the time you drink it;  
-    - the more coffee you drink, the higher (and more chaotic) the curve becomes 😅.
+    - A **natural baseline** that rises in the morning and gradually decreases in the evening  
+    - Each ☕ adds a **temporary boost** at the time you drink it  
+    - The more coffee consumed, the higher (and more dynamic) the curve becomes 😅
     """
 )
 if coffee_hours:
-    st.markdown(f"Today, we assume you had your coffees at: **{', '.join(coffee_hours)}**.")
+    st.markdown(f"**Today's coffee schedule:** {', '.join(coffee_hours)}")
 else:
-    st.markdown("Today, you had no coffee: your curve depends only on your natural energy 😴.")
+    st.markdown("**Today:** No coffee — your curve reflects natural energy patterns 😴")
 st.markdown("</div>", unsafe_allow_html=True)
 
 # -----------------------------
-# PLOTLY CURVE
+# PLOTLY CURVE (Enhanced)
 # -----------------------------
 st.markdown("<div class='card'>", unsafe_allow_html=True)
 st.markdown("<div class='section-title'>📈 Daily Energy Curve</div>", unsafe_allow_html=True)
 
 fig = go.Figure()
 
-# Main energy curve
+# Main energy curve with gradient effect
 fig.add_trace(go.Scatter(
     x=df["Hour"],
     y=df["Energy"],
     mode="lines+markers+text",
-    line=dict(width=4),
-    marker=dict(size=10),
+    line=dict(width=4, color='#d4a574', shape='spline'),
+    marker=dict(size=12, color='#8b4513', line=dict(width=2, color='#f4e4c1')),
     text=df["Mood"],
     textposition="top center",
-    name="Energy"
+    textfont=dict(size=16),
+    name="Energy",
+    hovertemplate="<b>%{x}</b><br>Energy: %{y}%<extra></extra>"
 ))
 
 # Highlight coffee moments
@@ -213,58 +315,104 @@ if coffee_hours:
         x=coffee_hours,
         y=coffee_y,
         mode="markers+text",
-        marker=dict(size=18, symbol="star", line=dict(width=2, color="white")),
+        marker=dict(size=22, symbol="star", color='#FFD700', line=dict(width=3, color='#8b4513')),
         text=[f"☕ #{i+1}" for i in range(len(coffee_hours))],
         textposition="bottom center",
-        name="Coffees",
-        hovertemplate="Coffee %{text}<br>Time: %{x}<br>Energy: %{y}%<extra></extra>"
+        textfont=dict(size=12, color='#FFD700'),
+        name="Coffee Moments",
+        hovertemplate="<b>Coffee %{text}</b><br>Time: %{x}<br>Energy: %{y}%<extra></extra>"
     ))
 
 fig.update_layout(
     template="plotly_dark",
-    yaxis=dict(range=[0, 110], title="Energy (%)"),
-    xaxis=dict(title="Time of day"),
-    height=480,
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0.3)',
+    yaxis=dict(
+        range=[0, 110],
+        title="Energy Level (%)",
+        gridcolor='rgba(212, 165, 116, 0.1)',
+        tickfont=dict(color='#f4e4c1')
+    ),
+    xaxis=dict(
+        title="Time of Day",
+        gridcolor='rgba(212, 165, 116, 0.1)',
+        tickfont=dict(color='#f4e4c1')
+    ),
+    height=500,
     hovermode="x unified",
-    margin=dict(l=20, r=20, t=10, b=40)
+    margin=dict(l=20, r=20, t=20, b=40),
+    font=dict(color='#f4e4c1')
 )
 
 st.plotly_chart(fig, use_container_width=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
 # -----------------------------
-# Stats
+# Stats (Enhanced)
 # -----------------------------
 st.markdown("<div class='card'>", unsafe_allow_html=True)
-st.markdown("<div class='section-title'>📊 Key Statistics</div>", unsafe_allow_html=True)
+st.markdown("<div class='section-title'>📊 Key Performance Metrics</div>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
-col1.metric("🔝 Peak energy", f"{df['Energy'].max()}%")
-col2.metric("🔻 Minimum", f"{df['Energy'].min()}%")
-col3.metric("⚡ Average", f"{round(df['Energy'].mean(),1)}%")
+
+with col1:
+    st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+    st.metric("🔝 Peak Energy", f"{df['Energy'].max()}%")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+    st.metric("🔻 Minimum Level", f"{df['Energy'].min()}%")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown("<div class='metric-container'>", unsafe_allow_html=True)
+    st.metric("⚡ Average", f"{round(df['Energy'].mean(),1)}%")
+    st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("</div>", unsafe_allow_html=True)
 
 # -----------------------------
-# Conclusion
+# Conclusion (Enhanced)
 # -----------------------------
 st.markdown("<div class='card'>", unsafe_allow_html=True)
-st.markdown("<div class='section-title'>🎯 Conclusion</div>", unsafe_allow_html=True)
+st.markdown("<div class='section-title'>🎯 Performance Analysis</div>", unsafe_allow_html=True)
 
 if coffee_count == 0:
-    message = "💀 No coffee: pure zombie mode, but at least your heart is calm."
+    message = "💀 **Zero Coffee Mode:** You look like an old laptop that needs to be plugged in. Energy at 10%. Pure survival instinct."
+    emoji = "😴"
 elif coffee_count == 1:
-    message = "😴 With 1 coffee: basic survival mode. It works, but avoid heavy math."
+    message = "🚀 **First Coffee Boost:** The magic moment! Energy jumps from 😴 to 🚀 instantly. That's what we call the awakening."
+    emoji = "🚀"
 elif coffee_count == 2:
-    message = "✨ With 2 coffees: **optimal performance zone**. Your brain runs in HD."
+    message = "😎 **The Sweet Spot:** Not because you want to... Because your soul needs it. Peak performance achieved. This is where magic happens."
+    emoji = "✨"
 elif coffee_count == 3:
-    message = "⚠️ With 3 coffees: very energetic… productive, but slightly shaking."
+    message = "💥 **The Midday Warrior:** Three coffees in. You've survived the famous 2 p.m. crash. The curve is beautiful and powerful."
+    emoji = "💥"
+elif coffee_count == 4:
+    message = "🔥 **Entering the Overcaffeinated Zone:** Energy 100% • Hands shaking • Heart doing TikTok dances • Brain: 'Let's reorganize the house at 9 p.m.'"
+    emoji = "🔥"
 else:
-    message = "🚨 Many coffees: **heart = brrrrr ⚡🔥**. Your E(t) is maxed out, drink water tomorrow."
+    message = "⚡ **Maximum Chaos Mode:** The curve is now a chaotic mountain range. You're not tired... you've transcended tiredness."
+    emoji = "⚡"
 
-st.write(message)
+st.markdown(f"### {emoji} {message}")
+st.markdown("---")
 st.markdown(
-    "<p class='footer-note'>📌 Based on totally fake science… but emotionally very accurate 😂</p>",
+    """
+    ### 💭 The Real Truth
+    
+    This curve is funny... but it shows something real:
+    
+    **Our energy doesn't follow a straight line.** It moves with our habits, our moods, and yes... our caffeine.
+    
+    We're all riding our own energy curves every day. The question is: *Are you aware of yours?*
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    "<p class='footer-note'>📌 Based on real coffee addiction and totally legitimate self-observation research ☕😂</p>",
     unsafe_allow_html=True
 )
 st.markdown("</div>", unsafe_allow_html=True)
