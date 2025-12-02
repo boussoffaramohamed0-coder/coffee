@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+import os 
 
 # -----------------------------
 # Page Config
@@ -151,6 +152,39 @@ st.markdown(
         color: #d4a574;
     }
     
+    .author-section {
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, rgba(101, 67, 33, 0.05) 100%);
+        border-radius: 20px;
+        border: 1px solid rgba(212, 165, 116, 0.15);
+    }
+    
+    .author-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #d4a574;
+        margin-bottom: 0.8rem;
+        box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+    }
+    
+    .author-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #d4a574;
+        margin: 0;
+    }
+    
+    .author-label {
+        font-size: 0.85rem;
+        color: #e5e7eb;
+        opacity: 0.7;
+        margin-top: 0.2rem;
+    }
+    
     .stSlider > div > div > div {
         background: linear-gradient(90deg, #8b4513, #d4a574);
     }
@@ -289,6 +323,23 @@ st.markdown("</div>", unsafe_allow_html=True)
 st.markdown("<div class='card'>", unsafe_allow_html=True)
 st.markdown("<div class='section-title'>📈 Daily Energy Curve</div>", unsafe_allow_html=True)
 
+# Display personal photos based on coffee count
+col_left, col_center, col_right = st.columns([1, 2, 1])
+
+with col_left:
+    # Show sad/tired photo when no coffee or low energy
+    if coffee_count <= 1 and os.path.exists("photo_tired.jpg"):
+        st.image("photo_tired.jpg", caption="Without coffee 😴", use_container_width=True)
+    elif coffee_count <= 1 and os.path.exists("photo_tired.png"):
+        st.image("photo_tired.png", caption="Without coffee 😴", use_container_width=True)
+
+with col_right:
+    # Show happy photo when drinking coffee
+    if coffee_count >= 2 and os.path.exists("photo_happy.jpg"):
+        st.image("photo_happy.jpg", caption="With coffee! 🚀☕", use_container_width=True)
+    elif coffee_count >= 2 and os.path.exists("photo_happy.png"):
+        st.image("photo_happy.png", caption="With coffee! 🚀☕", use_container_width=True)
+
 fig = go.Figure()
 
 # Main energy curve with gradient effect
@@ -417,4 +468,23 @@ st.markdown(
 )
 st.markdown("</div>", unsafe_allow_html=True)
 
+# -----------------------------
+# Author Section
+# -----------------------------
+st.markdown("<div class='author-section'>", unsafe_allow_html=True)
 
+# Try to load profile photo, if it exists
+import os
+if os.path.exists("profile.jpg"):
+    st.image("profile.jpg", width=80, use_container_width=False)
+elif os.path.exists("profile.png"):
+    st.image("profile.png", width=80, use_container_width=False)
+
+st.markdown(
+    """
+    <p class='author-label'>MADE BY</p>
+    <p class='author-name'>MOHAMED BOUSSOFFARA</p>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown("</div>", unsafe_allow_html=True)
